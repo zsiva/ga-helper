@@ -1,0 +1,53 @@
+
+<section>
+  <div class="container">
+      <strong>Generated URL: </strong> <span id="url">{{generatedURL}}</span>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <form #form="ngForm" (ngSubmit)="submitForm(form.value)">
+      <form-row [isRequired]="true" label="Protocol version" name="v" helpValue="1"
+        [(ngModel)]="v" ngDefaultControl></form-row>
+      <form-row [isRequired]="true" label="Tracking ID" name="tid" helpValue="UA-XXXX-Y"
+        [(ngModel)]="tid" ngDefaultControl></form-row>
+      <form-row [isRequired]="false" label="Data Source" name="ds" helpValue="web"
+          [(ngModel)]="ds" ngDefaultControl></form-row>
+      <form-row [isRequired]="false" label="Queue Time" name="qt" helpValue="560"
+          [(ngModel)]="qt" ngDefaultControl></form-row>
+      <form-row [isRequired]="false" label="Cache Buster" name="z" helpValue="289372387623"
+          [(ngModel)]="z" ngDefaultControl></form-row>
+
+      <div *ngFor="let item of newItems">
+        <form-row [isRequired]="false" [label]="item" [name]="item" [ngModel]="item" ngDefaultControl></form-row>
+      </div>
+     <div class="form-group row">
+       <small class="col-xs-12 col-form-label">* Required</small>
+     </div>
+      <div class="form-group row text-center">
+        <div class="col-sm-12">
+          <button type="submit" class="btn btn-primary">Generate Url</button>
+        </div>
+      </div>
+
+  </form>
+</div>
+</section>
+<section>
+  <div class="container">
+    <button (click)='toggleForm()' class="btn btn-primary">Add custom field</button>
+    <form [hidden]="!formVisible" #form2="ngForm" (ngSubmit)="addRow(form2.value)">
+      <div class="form-group row">
+        <label for="parameter" class="col-sm-3 col-form-label">Parameter:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" placeholder="Parameter" name="parameter" ngModel ngDefaultControl>
+        </div>
+        <div class="col-sm-3">
+          <button type="submit" class="btn btn-primary">Add field</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

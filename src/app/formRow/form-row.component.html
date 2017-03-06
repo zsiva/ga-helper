@@ -1,0 +1,8 @@
+<div class="form-group row">
+  <label [for]="name" class="col-sm-3 col-form-label text-capitalize">{{label}}: <span *ngIf="isRequired">*</span></label>
+  <div class="col-sm-9">
+    <input type="text" class="form-control" [placeholder]="label"
+      [name]="name" ngModel [id]="name" [required]=isRequired>
+    <small *ngIf="helpValue">Example value: {{helpValue}}</small>
+  </div>
+</div>
